@@ -1,15 +1,26 @@
 // Use the API_URL variable to make fetch requests to the API.
 // Replace the placeholder with your cohort name (ex: 2109-UNF-HY-WEB-PT)
-const cohortName = "YOUR COHORT NAME HERE";
+const cohortName = "2404-FTB-ET-WEB-AM";
 const API_URL = `https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}`;
 
-/**
- * Fetches all players from the API.
- * @returns {Object[]} the array of player objects
- */
+// document query selector *//
+const playersContainer = document.querySelector("main");
+
+const modal = document.querySelector(".modal");
+const modalContent = document.querySelector(".modal-content");
+const closeModal = document.querySelector("#close-modal");
+const addNewPlayerForm = document.querySelector("#new-player-form");
+
+//i do not know what this is for *figure out*
+ @returns {Object[]} the array of player objects
+
+
+ // figure out where to consol.log!!!
 const fetchAllPlayers = async () => {
   try {
-    // TODO
+    const res = await fetch(`${API_URL}/players`);
+      const Json = await res.json();
+      return data.json.players;
   } catch (err) {
     console.error("Uh oh, trouble fetching players!", err);
   }
@@ -20,9 +31,13 @@ const fetchAllPlayers = async () => {
  * @param {number} playerId
  * @returns {Object} the player object
  */
+// const fetchSinglePlayer; res; json; "render"?
+// finished?
 const fetchSinglePlayer = async (playerId) => {
   try {
-    // TODO
+    const res = await fetch(`${API_URL}/players/${playerId}`);
+    const json = await res.json();
+    return json.data.player;
   } catch (err) {
     console.error(`Oh no, trouble fetching player #${playerId}!`, err);
   }
@@ -33,9 +48,19 @@ const fetchSinglePlayer = async (playerId) => {
  * @param {Object} playerObj the player to add
  * @returns {Object} the player returned by the API
  */
+// focus on method and console.log error
+// const JSON.stringify; playerObj
+// try; return; catch
+// finished?
 const addNewPlayer = async (playerObj) => {
   try {
-    // TODO
+    const res = await fetch(`${API_URL}/players/`, {
+      method: "POST",
+      body: JSON.stringify(playerObj),
+      headers: { "Content-type": "application/json" },
+    });
+    const json = await res.json();
+    return json;
   } catch (err) {
     console.error("Oops, something went wrong with adding that player!", err);
   }
@@ -45,9 +70,16 @@ const addNewPlayer = async (playerObj) => {
  * Removes a player from the roster via the API.
  * @param {number} playerId the ID of the player to remove
  */
+// const RemovePlayer; method; const res; await fetch; can not figure out error,
+// everything working before this
+// figure out error!
 const removePlayer = async (playerId) => {
   try {
-    // TODO
+    const res = await fetch(`${API_URL}/players/${playerId}`, {
+      method:
+    });
+    const json = await res.json();
+    return json;
   } catch (err) {
     console.error(
       `Whoops, trouble removing player #${playerId} from the roster!`,
@@ -76,7 +108,10 @@ const removePlayer = async (playerId) => {
  * @param {Object[]} playerList - an array of player objects
  */
 const renderAllPlayers = (playerList) => {
-  // TODO
+  try {
+    const
+    const
+  }
 };
 
 /**
